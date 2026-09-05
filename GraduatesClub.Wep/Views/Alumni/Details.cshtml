@@ -1,0 +1,3 @@
+@model GraduatesClub.Domain.Entities.Alumni
+@{ ViewData["Title"]="تفاصيل الخريج"; }
+<div class="container mt-4"><h2>@Model.FullName</h2>@if(!string.IsNullOrWhiteSpace(Model.PhotoPath)){<img src="@Model.PhotoPath" alt="صورة @Model.FullName" class="alumni-photo-lg mb-3"/>}<dl class="row"><dt class="col-3">البريد</dt><dd class="col-9">@Model.Email</dd><dt class="col-3">الهاتف</dt><dd class="col-9">@Model.Phone</dd><dt class="col-3">سنة التخرج</dt><dd class="col-9">@Model.GraduationYear</dd><dt class="col-3">القسم</dt><dd class="col-9">@Model.Department?.Name</dd></dl><a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">تعديل</a> <a asp-action="Index" class="btn btn-secondary">عودة</a></div>

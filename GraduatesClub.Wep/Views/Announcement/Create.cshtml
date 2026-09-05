@@ -1,0 +1,46 @@
+﻿@model GraduatesClub.Web.Models.AnnouncementViewModel
+
+@{
+    ViewData["Title"] = "إضافة إعلان جديد";
+}
+
+<div class="container py-4" style="direction: rtl; text-align: right;">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card border-0 shadow-lg p-4 rounded-4 bg-white">
+                <div class="d-flex align-items-center mb-4 border-bottom pb-3">
+                    <h3 class="fw-bold text-primary mb-0">📢 إضافة إعلان جديد</h3>
+                </div>
+
+                <!-- نموذج الإرسال المرتبط بدالة POST في الـ Controller -->
+                <form asp-action="Create" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label fw-bold text-secondary">عنوان الإعلان</label>
+                        <input asp-for="Title" class="form-control form-control-lg bg-light" placeholder="أدخل عنوان الإعلان..." />
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-bold text-secondary">محتوى الإعلان</label>
+                        <textarea asp-for="Content" class="form-control bg-light" rows="4" placeholder="اكتب تفاصيل الإعلان هنا..."></textarea>
+                        <span asp-validation-for="Content" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label fw-bold text-secondary">التاريخ</label>
+                        <input asp-for="Date" type="date" class="form-control form-control-lg bg-light" />
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center pt-3 border-top">
+                        <a href="/Announcement/Index" class="btn btn-outline-secondary px-4 py-2 rounded-pill">إلغاء</a>
+                        <!-- زر النشر بنوع submit لضمان عمله واستجابته الفورية -->
+                        <button type="submit" class="btn btn-primary px-5 py-2 fw-bold shadow-sm rounded-pill">نشر الإعلان</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>

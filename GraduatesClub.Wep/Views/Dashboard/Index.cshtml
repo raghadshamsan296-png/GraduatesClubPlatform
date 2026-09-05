@@ -1,0 +1,3 @@
+@model GraduatesClub.Web.Controllers.DashboardViewModel
+@{ ViewData["Title"]="لوحة التحكم"; }
+<div class="container"><h2 class="mb-4">لوحة التحكم</h2><div class="row g-3"><div class="col-md-4"><div class="card p-3"><h5>الخريجون</h5><h2>@Model.Alumni</h2></div></div><div class="col-md-4"><div class="card p-3"><h5>الأقسام</h5><h2>@Model.Departments</h2></div></div><div class="col-md-4"><div class="card p-3"><h5>الوظائف</h5><h2>@Model.Jobs</h2></div></div><div class="col-md-4"><div class="card p-3"><h5>الفعاليات</h5><h2>@Model.Events</h2></div></div><div class="col-md-4"><div class="card p-3"><h5>الإعلانات</h5><h2>@Model.Announcements</h2></div></div><div class="col-md-4"><div class="card p-3"><h5>الرسائل</h5><h2>@Model.Messages</h2></div></div></div></div>

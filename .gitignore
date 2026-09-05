@@ -1,0 +1,7 @@
+.vs/
+**/bin/
+**/obj/
+*.user
+*.suo
+GraduatesClub.Wep/wwwroot/uploads/alumni/*
+!GraduatesClub.Wep/wwwroot/uploads/alumni/.gitkeep

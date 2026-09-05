@@ -1,0 +1,50 @@
+﻿@model GraduatesClub.Web.Controllers.UserProfileModel
+
+@{
+    ViewData["Title"] = "إعدادات الملف الشخصي";
+}
+
+<div class="container py-4" style="direction: rtl; text-align: right;">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            
+            <div class="card border-0 shadow-sm p-4 rounded-4 bg-white">
+                <h3 class="fw-bold text-primary mb-3">👤 إعدادات الملف الشخصي</h3>
+                <p class="text-muted small mb-4">يمكنك تعديل بيانات حسابك الشخصي وكلمة المرور من هنا.</p>
+
+                @if (TempData["SuccessMessage"] != null)
+                {
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        @TempData["SuccessMessage"]
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                }
+
+                <form asp-action="UpdateProfile" method="post">
+                    <input type="hidden" asp-for="Id" />
+                    <div class="mb-3">
+                        <label class="form-label fw-bold text-secondary">الاسم الكامل</label>
+                        <input type="text" name="FullName" class="form-control form-control-lg bg-light" value="@Model?.FullName" required />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-bold text-secondary">البريد الإلكتروني</label>
+                        <input type="email" name="Email" class="form-control form-control-lg bg-light" value="@Model?.Email" required />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-bold text-secondary">رقم الهاتف</label>
+                        <input type="text" name="Phone" class="form-control form-control-lg bg-light" value="@Model?.Phone" />
+                    </div>
+
+                    <div class="mb-4"><label asp-for="Password" class="form-label fw-bold text-secondary">كلمة مرور جديدة</label><input asp-for="Password" type="password" class="form-control" placeholder="اتركها فارغة للاحتفاظ بالحالية"/><span asp-validation-for="Password" class="text-danger"></span></div>
+
+                    <div class="d-flex justify-content-end">
+                        <button type="submit" class="btn btn-primary px-5 py-2 fw-bold shadow-sm rounded-pill">حفظ التغييرات</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,49 @@
+﻿@{
+    ViewData["Title"] = "تسجيل الدخول";
+    Layout = null; // إذا كنت لا تريد استخدام Layout الافتراضي، أو احذفها لو كنت تستخدمه
+}
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>تسجيل الدخول - منصة الخريجين</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-5">
+                <div class="card shadow-lg border-0 rounded-lg mt-5">
+                    <div class="card-header bg-primary text-white text-center py-3">
+                        <h3 class="font-weight-light my-2">منصة الخريجين - تسجيل الدخول</h3>
+                    </div>
+                    <div class="card-body p-4">
+                        @if (ViewBag.Error != null)
+                        {
+                            <div class="alert alert-danger" role="alert">
+                                @ViewBag.Error
+                            </div>
+                        }
+
+                        <form asp-action="Index" method="post">
+                            <div class="form-floating mb-3">
+                                <label for="username" class="form-label">اسم المستخدم</label>
+                                <input type="email" class="form-control" id="username" name="username" placeholder="admin@graduates.local" required />
+                            </div>
+                            <div class="form-floating mb-3">
+                                <label for="password" class="form-label">كلمة المرور</label>
+                                <input type="password" class="form-control" id="password" name="password" placeholder="Admin@123" required />
+                            </div>
+                            <div class="d-grid mt-4">
+                                <button type="submit" class="btn btn-primary btn-lg">دخول</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

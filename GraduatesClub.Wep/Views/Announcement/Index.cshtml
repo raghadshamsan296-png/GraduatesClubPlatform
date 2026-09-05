@@ -1,0 +1,43 @@
+﻿@model IEnumerable<GraduatesClub.Web.Models.AnnouncementViewModel>
+@{
+    ViewData["Title"] = "إدارة الإعلانات";
+}
+
+<div class="container py-4" style="direction: rtl; text-align: right;">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h3 class="fw-bold text-primary">لوحة الإعلانات</h3>
+        <a href="/Announcement/Create" class="btn btn-success px-4 py-2 fw-bold shadow-sm">
+            <i class="bi bi-plus-lg"></i> إضافة إعلان جديد
+        </a>
+    </div>
+
+    <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
+        <table class="table table-hover align-middle mb-0 text-center data-table">
+            <thead class="table-dark">
+                <tr>
+                    <th>الرقم</th>
+                    <th>عنوان الإعلان</th>
+                    <th>المحتوى</th>
+                    <th>التاريخ</th>
+                    <th>العمليات</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Any())
+                {
+                    int i = 1;
+                    foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@(i++)</td>
+                            <td class="fw-bold">@item.Title</td>
+                            <td>@item.Content</td>
+                            <td>@item.Date.ToString("yyyy/MM/dd")</td>
+                            <td><a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info">تفاصيل</a> <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning">تعديل</a> <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">حذف</a></td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

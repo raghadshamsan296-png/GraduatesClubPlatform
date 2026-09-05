@@ -1,0 +1,29 @@
+طريقة تشغيل المشروع - ASP.NET Core 6
+====================================
+
+تشغيل موقع MVC بشكل طبيعي:
+1) افتح الملف GraduatesClub.sln في Visual Studio.
+2) من Solution Explorer اضغط بزر الفأرة الأيمن على GraduatesClub.Web.
+3) اختر Set as Startup Project.
+4) اضغط Ctrl+F5 أو زر التشغيل.
+5) ستفتح الصفحة الرئيسية للموقع تلقائياً على:
+   https://localhost:7064
+
+بيانات دخول لوحة الإدارة:
+البريد: admin@graduates.local
+كلمة المرور: Admin@123
+
+تشغيل Web API وSwagger:
+1) اضغط بزر الفأرة الأيمن على GraduatesClub.API.
+2) اختر Set as Startup Project.
+3) اضغط Ctrl+F5.
+4) ستفتح Swagger تلقائياً على:
+   https://localhost:7158/swagger
+
+ملاحظات:
+- يجب تثبيت Visual Studio مع حزمة ASP.NET and web development و.NET 6 SDK.
+- قاعدة البيانات SQL Server LocalDB تُنشأ وتُحدّث تلقائياً عند أول تشغيل.
+- MVC وAPI يستخدمان قاعدة البيانات نفسها، ويمكن تشغيل كل واحد منهما بصورة مستقلة.
+- لا تحتاج إلى تشغيل مشاريع Domain أو Application أو Infrastructure؛ هذه مكتبات يستعملها MVC وAPI داخلياً.
+- إذا ظهر خيار Launch Profiles أعلى Visual Studio اختر Graduates Club Web للتشغيل العادي، أو Graduates Club Web + API لتشغيل الموقع والـAPI معاً.
+- خيار Graduates Club Web + API يشغل الموقع والـAPI معاً، لكنه يفتح صفحة الموقع فقط. يستمر الـAPI في الخلفية لكي يعمل Postman بدون فتح صفحة Swagger تلقائياً.

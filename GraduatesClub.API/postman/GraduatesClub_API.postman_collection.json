@@ -1,0 +1,96 @@
+{
+  "info": {
+    "_postman_id": "8b2db477-c43b-47f0-8c90-4f2f5a18d971",
+    "name": "Graduates Club API - Complete",
+    "description": "Complete CRUD collection. Run Create requests in folder order to populate IDs automatically.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "https://localhost:7158" },
+    { "key": "departmentId", "value": "1" },
+    { "key": "alumniId", "value": "1" },
+    { "key": "eventId", "value": "1" },
+    { "key": "jobId", "value": "1" },
+    { "key": "announcementId", "value": "1" },
+    { "key": "userId", "value": "1" },
+    { "key": "messageId", "value": "1" }
+  ],
+  "item": [
+    {
+      "name": "Authentication",
+      "item": [
+        { "name": "Login", "request": { "method": "POST", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\n  \"email\": \"admin@graduates.local\",\n  \"password\": \"Admin@123\"\n}" }, "url": "{{baseUrl}}/api/Auth/login" } }
+      ]
+    },
+    {
+      "name": "Departments",
+      "item": [
+        { "name": "Get All", "request": { "method": "GET", "url": "{{baseUrl}}/api/Department" } },
+        { "name": "Get By ID", "request": { "method": "GET", "url": "{{baseUrl}}/api/Department/{{departmentId}}" } },
+        { "name": "Create", "event": [{ "listen": "test", "script": { "exec": ["if (pm.response.code === 201) pm.collectionVariables.set('departmentId', pm.response.json().id);"] } }], "request": { "method": "POST", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\n  \"name\": \"Information Technology\"\n}" }, "url": "{{baseUrl}}/api/Department" } },
+        { "name": "Update", "request": { "method": "PUT", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\n  \"id\": {{departmentId}},\n  \"name\": \"Computer Science\"\n}" }, "url": "{{baseUrl}}/api/Department/{{departmentId}}" } },
+        { "name": "Delete", "request": { "method": "DELETE", "url": "{{baseUrl}}/api/Department/{{departmentId}}" } }
+      ]
+    },
+    {
+      "name": "Alumni",
+      "item": [
+        { "name": "Get All", "request": { "method": "GET", "url": "{{baseUrl}}/api/Alumni" } },
+        { "name": "Get By ID", "request": { "method": "GET", "url": "{{baseUrl}}/api/Alumni/{{alumniId}}" } },
+        { "name": "Create", "event": [{ "listen": "test", "script": { "exec": ["if (pm.response.code === 201) pm.collectionVariables.set('alumniId', pm.response.json().id);"] } }], "request": { "method": "POST", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\n  \"fullName\": \"Ahmed Ali\",\n  \"email\": \"ahmed@example.com\",\n  \"phone\": \"777123456\",\n  \"graduationYear\": 2025,\n  \"departmentId\": {{departmentId}}\n}" }, "url": "{{baseUrl}}/api/Alumni" } },
+        { "name": "Update", "request": { "method": "PUT", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\n  \"id\": {{alumniId}},\n  \"fullName\": \"Ahmed Ali Updated\",\n  \"email\": \"ahmed.updated@example.com\",\n  \"phone\": \"777123456\",\n  \"graduationYear\": 2025,\n  \"departmentId\": {{departmentId}}\n}" }, "url": "{{baseUrl}}/api/Alumni/{{alumniId}}" } },
+        { "name": "Delete", "request": { "method": "DELETE", "url": "{{baseUrl}}/api/Alumni/{{alumniId}}" } }
+      ]
+    },
+    {
+      "name": "Events",
+      "item": [
+        { "name": "Get All", "request": { "method": "GET", "url": "{{baseUrl}}/api/Event" } },
+        { "name": "Get By ID", "request": { "method": "GET", "url": "{{baseUrl}}/api/Event/{{eventId}}" } },
+        { "name": "Create", "event": [{ "listen": "test", "script": { "exec": ["if (pm.response.code === 201) pm.collectionVariables.set('eventId', pm.response.json().id);"] } }], "request": { "method": "POST", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\n  \"title\": \"Graduates Meeting\",\n  \"description\": \"Annual graduates meeting\",\n  \"eventDate\": \"2026-12-15T10:00:00\",\n  \"alumniId\": {{alumniId}}\n}" }, "url": "{{baseUrl}}/api/Event" } },
+        { "name": "Update", "request": { "method": "PUT", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\n  \"id\": {{eventId}},\n  \"title\": \"Updated Meeting\",\n  \"description\": \"Updated description\",\n  \"eventDate\": \"2026-12-20T10:00:00\",\n  \"alumniId\": {{alumniId}}\n}" }, "url": "{{baseUrl}}/api/Event/{{eventId}}" } },
+        { "name": "Delete", "request": { "method": "DELETE", "url": "{{baseUrl}}/api/Event/{{eventId}}" } }
+      ]
+    },
+    {
+      "name": "Jobs",
+      "item": [
+        { "name": "Get All", "request": { "method": "GET", "url": "{{baseUrl}}/api/Jobs" } },
+        { "name": "Get By ID", "request": { "method": "GET", "url": "{{baseUrl}}/api/Jobs/{{jobId}}" } },
+        { "name": "Create", "event": [{ "listen": "test", "script": { "exec": ["if (pm.response.code === 201) pm.collectionVariables.set('jobId', pm.response.json().id);"] } }], "request": { "method": "POST", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\n  \"jobTitle\": \"Software Developer\",\n  \"companyName\": \"Tech Company\",\n  \"requirements\": \"C# and ASP.NET Core\"\n}" }, "url": "{{baseUrl}}/api/Jobs" } },
+        { "name": "Update", "request": { "method": "PUT", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\n  \"id\": {{jobId}},\n  \"jobTitle\": \"Senior Developer\",\n  \"companyName\": \"Tech Company\",\n  \"requirements\": \"C# and SQL Server\"\n}" }, "url": "{{baseUrl}}/api/Jobs/{{jobId}}" } },
+        { "name": "Delete", "request": { "method": "DELETE", "url": "{{baseUrl}}/api/Jobs/{{jobId}}" } }
+      ]
+    },
+    {
+      "name": "Announcements",
+      "item": [
+        { "name": "Get All", "request": { "method": "GET", "url": "{{baseUrl}}/api/Announcements" } },
+        { "name": "Get By ID", "request": { "method": "GET", "url": "{{baseUrl}}/api/Announcements/{{announcementId}}" } },
+        { "name": "Create", "event": [{ "listen": "test", "script": { "exec": ["if (pm.response.code === 201) pm.collectionVariables.set('announcementId', pm.response.json().id);"] } }], "request": { "method": "POST", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\n  \"title\": \"New Announcement\",\n  \"content\": \"Announcement details\",\n  \"date\": \"2026-09-02T00:00:00\"\n}" }, "url": "{{baseUrl}}/api/Announcements" } },
+        { "name": "Update", "request": { "method": "PUT", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\n  \"id\": {{announcementId}},\n  \"title\": \"Updated Announcement\",\n  \"content\": \"Updated details\",\n  \"date\": \"2026-09-03T00:00:00\"\n}" }, "url": "{{baseUrl}}/api/Announcements/{{announcementId}}" } },
+        { "name": "Delete", "request": { "method": "DELETE", "url": "{{baseUrl}}/api/Announcements/{{announcementId}}" } }
+      ]
+    },
+    {
+      "name": "Users",
+      "item": [
+        { "name": "Get All", "request": { "method": "GET", "url": "{{baseUrl}}/api/UserProfiles" } },
+        { "name": "Get By ID", "request": { "method": "GET", "url": "{{baseUrl}}/api/UserProfiles/{{userId}}" } },
+        { "name": "Create", "event": [{ "listen": "test", "script": { "exec": ["if (pm.response.code === 201) pm.collectionVariables.set('userId', pm.response.json().id);"] } }], "request": { "method": "POST", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\n  \"fullName\": \"Test User\",\n  \"email\": \"user@example.com\",\n  \"phone\": \"777000000\",\n  \"password\": \"User@1234\"\n}" }, "url": "{{baseUrl}}/api/UserProfiles" } },
+        { "name": "Update", "request": { "method": "PUT", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\n  \"id\": {{userId}},\n  \"fullName\": \"Updated User\",\n  \"email\": \"updated.user@example.com\",\n  \"phone\": \"777111111\"\n}" }, "url": "{{baseUrl}}/api/UserProfiles/{{userId}}" } },
+        { "name": "Delete", "request": { "method": "DELETE", "url": "{{baseUrl}}/api/UserProfiles/{{userId}}" } }
+      ]
+    },
+    {
+      "name": "Contact Messages",
+      "item": [
+        { "name": "Get All", "request": { "method": "GET", "url": "{{baseUrl}}/api/ContactMessages" } },
+        { "name": "Get By ID", "request": { "method": "GET", "url": "{{baseUrl}}/api/ContactMessages/{{messageId}}" } },
+        { "name": "Create", "event": [{ "listen": "test", "script": { "exec": ["if (pm.response.code === 201) pm.collectionVariables.set('messageId', pm.response.json().id);"] } }], "request": { "method": "POST", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\n  \"fullName\": \"Visitor Name\",\n  \"email\": \"visitor@example.com\",\n  \"message\": \"Hello graduates club\"\n}" }, "url": "{{baseUrl}}/api/ContactMessages" } },
+        { "name": "Update", "request": { "method": "PUT", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\n  \"id\": {{messageId}},\n  \"fullName\": \"Updated Visitor\",\n  \"email\": \"visitor.updated@example.com\",\n  \"message\": \"Updated contact message\"\n}" }, "url": "{{baseUrl}}/api/ContactMessages/{{messageId}}" } },
+        { "name": "Delete", "request": { "method": "DELETE", "url": "{{baseUrl}}/api/ContactMessages/{{messageId}}" } }
+      ]
+    }
+  ]
+}

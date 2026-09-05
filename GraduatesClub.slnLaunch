@@ -1,0 +1,33 @@
+[
+  {
+    "Name": "Graduates Club Web",
+    "Projects": [
+      {
+        "Path": "GraduatesClub.Wep\\GraduatesClub.Web.csproj",
+        "Action": "Start"
+      }
+    ]
+  },
+  {
+    "Name": "Graduates Club Web + API",
+    "Projects": [
+      {
+        "Path": "GraduatesClub.Wep\\GraduatesClub.Web.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "GraduatesClub.API\\GraduatesClub.API.csproj",
+        "Action": "Start"
+      }
+    ]
+  },
+  {
+    "Name": "Graduates Club API (Swagger)",
+    "Projects": [
+      {
+        "Path": "GraduatesClub.API\\GraduatesClub.API.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

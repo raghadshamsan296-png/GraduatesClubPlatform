@@ -1,0 +1,71 @@
+﻿@model GraduatesClub.Web.ViewModels.AlumniViewModel
+
+@{
+    ViewData["Title"] = "إضافة خريج جديد";
+}
+
+<div class="container mt-4">
+    <h2>إضافة خريج جديد</h2>
+    <hr />
+    <div class="row">
+        <div class="col-md-6">
+            <form asp-action="Create" method="post" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <!-- الاسم الكامل -->
+                <div class="form-group mb-3">
+                    <label asp-for="FullName" class="control-label">الاسم الكامل</label>
+                    <input asp-for="FullName" class="form-control" />
+                    <span asp-validation-for="FullName" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Photo" class="control-label"></label>
+                    <input asp-for="Photo" class="form-control" type="file" accept="image/jpeg,image/png,image/webp" />
+                    <div class="form-text">JPG أو PNG أو WEBP، بحد أقصى 2 ميجابايت.</div>
+                    <span asp-validation-for="Photo" class="text-danger"></span>
+                </div>
+
+                <!-- البريد الإلكتروني -->
+                <div class="form-group mb-3">
+                    <label asp-for="Email" class="control-label">البريد الإلكتروني</label>
+                    <input asp-for="Email" class="form-control" type="email" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+                <!-- رقم الهاتف -->
+                <div class="form-group mb-3">
+                    <label asp-for="Phone" class="control-label">رقم الهاتف</label>
+                    <input asp-for="Phone" class="form-control" />
+                    <span asp-validation-for="Phone" class="text-danger"></span>
+                </div>
+
+                <!-- سنة التخرج -->
+                <div class="form-group mb-3">
+                    <label asp-for="GraduationYear" class="control-label">سنة التخرج</label>
+                    <input asp-for="GraduationYear" class="form-control" type="number" placeholder="مثال: 2026" />
+                    <span asp-validation-for="GraduationYear" class="text-danger"></span>
+                </div>
+
+                <!-- اختيار القسم -->
+                <div class="form-group mb-3">
+                    <label asp-for="DepartmentId" class="control-label">القسم</label>
+                    <select asp-for="DepartmentId" class="form-control" asp-items="ViewBag.DepartmentId">
+                        <option value="">-- اختر القسم --</option>
+                    </select>
+                    <span asp-validation-for="DepartmentId" class="text-danger"></span>
+                </div>
+
+                <!-- أزرار الحفظ -->
+                <div class="form-group mb-3">
+                    <input type="submit" value="حفظ" class="btn btn-primary" />
+                    <a asp-action="Index" class="btn btn-secondary">العودة للقائمة</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

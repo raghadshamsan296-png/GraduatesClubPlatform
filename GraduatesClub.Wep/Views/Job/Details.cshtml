@@ -1,0 +1,3 @@
+@model GraduatesClub.Web.Models.JobViewModel
+@{ ViewData["Title"] = "تفاصيل الوظيفة"; }
+<div class="card shadow-sm border-0"><div class="card-body p-4"><h2 class="mb-4">@Model.JobTitle</h2><dl class="row"><dt class="col-md-3">الشركة</dt><dd class="col-md-9">@Model.CompanyName</dd><dt class="col-md-3">المتطلبات</dt><dd class="col-md-9 text-pre-wrap">@Model.Requirements</dd></dl><a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning"><i class="bi bi-pencil"></i> تعديل</a> <a asp-action="Index" class="btn btn-secondary">عودة</a></div></div>

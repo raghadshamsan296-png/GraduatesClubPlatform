@@ -1,0 +1,4 @@
+@model GraduatesClub.Web.Models.UserProfileViewModel
+@{ ViewData["Title"] = "إضافة مستخدم"; }
+<partial name="_Form" model="Model"/><div class="mt-3"><a asp-action="Index" class="btn btn-secondary">عودة</a></div>
+@section Scripts { @{await Html.RenderPartialAsync("_ValidationScriptsPartial");} }

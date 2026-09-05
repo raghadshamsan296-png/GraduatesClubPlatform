@@ -1,0 +1,3 @@
+@model GraduatesClub.Web.Controllers.EventViewModel
+@{ ViewData["Title"]="تفاصيل فعالية"; }
+<div class="container mt-4"><h2>@Model.Title</h2><p>@Model.Description</p><p><strong>التاريخ:</strong> @Model.EventDate</p><p><strong>الخريج:</strong> @Model.AlumniName</p><a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">تعديل</a> <a asp-action="Index" class="btn btn-secondary">عودة</a></div>

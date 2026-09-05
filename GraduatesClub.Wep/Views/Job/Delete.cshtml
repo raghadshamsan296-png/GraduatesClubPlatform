@@ -1,0 +1,3 @@
+@model GraduatesClub.Web.Models.JobViewModel
+@{ ViewData["Title"]="حذف فرصة عمل"; }
+<div class="container mt-4"><div class="alert alert-warning">هل تريد حذف وظيفة <strong>@Model.JobTitle</strong> لدى @Model.CompanyName؟</div><form asp-action="Delete" method="post"><input asp-for="Id" type="hidden"/><button class="btn btn-danger">تأكيد الحذف</button> <a asp-action="Index" class="btn btn-secondary">إلغاء</a></form></div>

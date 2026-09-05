@@ -1,0 +1,36 @@
+:root {
+  --club-primary: #0b4f8a;
+  --club-primary-dark: #073763;
+  --club-accent: #f0b429;
+  --club-surface: #ffffff;
+  --club-background: #f4f7fb;
+  --club-radius: 0.75rem;
+}
+
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+  background: var(--club-background);
+}
+
+.alumni-photo { width: 48px; height: 48px; object-fit: cover; border-radius: 50%; border: 2px solid #e4eaf0; }
+.alumni-photo-lg { width: 150px; height: 150px; object-fit: cover; border-radius: var(--club-radius); }
+.avatar-placeholder { display: inline-flex; width: 48px; height: 48px; align-items: center; justify-content: center; border-radius: 50%; background: #e9ecef; color: #6c757d; font-size: 1.5rem; }
+.text-pre-wrap { white-space: pre-wrap; }
+.text-truncate-cell { max-width: 260px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.hero-club { background: linear-gradient(135deg, var(--club-primary-dark), var(--club-primary)); color: #fff; border-radius: 1.25rem; }
+.stat-card { border: 0; border-radius: var(--club-radius); box-shadow: 0 .25rem 1rem rgba(0,0,0,.08); }

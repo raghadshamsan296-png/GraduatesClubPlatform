@@ -1,0 +1,44 @@
+﻿@model GraduatesClub.Web.Models.JobViewModel
+
+@{
+    ViewData["Title"] = "إضافة فرصة عمل";
+}
+
+<div class="container mt-4" style="direction: rtl; text-align: right;">
+    <h2>إضافة فرصة عمل جديدة</h2>
+    <hr />
+    <div class="row">
+        <div class="col-md-6">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="JobTitle" class="control-label">المسمى الوظيفي</label>
+                    <input asp-for="JobTitle" class="form-control" />
+                    <span asp-validation-for="JobTitle" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="CompanyName" class="control-label">اسم الشركة</label>
+                    <input asp-for="CompanyName" class="form-control" />
+                    <span asp-validation-for="CompanyName" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Requirements" class="control-label">المتطلبات</label>
+                    <textarea asp-for="Requirements" class="form-control"></textarea>
+                    <span asp-validation-for="Requirements" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <input type="submit" value="حفظ" class="btn btn-primary" />
+                    <a asp-action="Index" class="btn btn-secondary">العودة للقائمة</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,21 @@
+@model GraduatesClub.Web.Controllers.EventViewModel
+
+@{ ViewData["Title"] = "إضافة فعالية جديدة"; }
+
+<div class="container mt-4" style="direction: rtl; text-align: right;">
+    <div class="row justify-content-center"><div class="col-md-8"><div class="card shadow border-0">
+        <div class="card-header bg-primary text-white"><h4 class="mb-0">إضافة فعالية جديدة</h4></div>
+        <div class="card-body p-4">
+            <form asp-action="Create" method="post">
+                <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+                <div class="mb-3"><label asp-for="Title" class="form-label">عنوان الفعالية</label><input asp-for="Title" class="form-control" /><span asp-validation-for="Title" class="text-danger"></span></div>
+                <div class="mb-3"><label asp-for="Description" class="form-label">الوصف</label><textarea asp-for="Description" class="form-control" rows="4"></textarea><span asp-validation-for="Description" class="text-danger"></span></div>
+                <div class="mb-3"><label asp-for="EventDate" class="form-label">تاريخ الفعالية</label><input asp-for="EventDate" type="datetime-local" class="form-control" /><span asp-validation-for="EventDate" class="text-danger"></span></div>
+                <div class="mb-3"><label asp-for="AlumniId" class="form-label">الخريج المنظم</label><select asp-for="AlumniId" asp-items="ViewBag.AlumniId" class="form-select"><option value="0">-- اختر الخريج --</option></select><span asp-validation-for="AlumniId" class="text-danger"></span></div>
+                <a asp-action="Index" class="btn btn-secondary">إلغاء</a><button type="submit" class="btn btn-success">حفظ الفعالية</button>
+            </form>
+        </div>
+    </div></div></div>
+</div>
+
+@section Scripts { @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); } }

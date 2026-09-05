@@ -1,0 +1,3 @@
+@model GraduatesClub.Domain.Entities.ContactMessage
+@{ ViewData["Title"] = "تفاصيل الرسالة"; }
+<div class="card shadow-sm border-0"><div class="card-body p-4"><h2>تفاصيل الرسالة</h2><dl class="row"><dt class="col-md-3">الاسم</dt><dd class="col-md-9">@Model.FullName</dd><dt class="col-md-3">البريد</dt><dd class="col-md-9">@Model.Email</dd><dt class="col-md-3">التاريخ</dt><dd class="col-md-9">@Model.SentAt.ToLocalTime()</dd><dt class="col-md-3">الرسالة</dt><dd class="col-md-9 text-pre-wrap">@Model.Message</dd></dl><a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">تعديل</a> <a asp-action="Index" class="btn btn-secondary">عودة</a></div></div>
