@@ -5,3 +5,4 @@
 *.suo
 GraduatesClub.Wep/wwwroot/uploads/alumni/*
 !GraduatesClub.Wep/wwwroot/uploads/alumni/.gitkeep
+GraduatesClub.Mobile/
